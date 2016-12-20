@@ -30,7 +30,7 @@ public class LinePluginTest {
         AlertPack ap = genAlertPack();
         plugin.alert(ap);
 
-        Thread.sleep(300000);
+        Thread.sleep(10000);
     }
 
     private static AlertPack genAlertPack() {

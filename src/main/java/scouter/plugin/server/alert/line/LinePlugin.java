@@ -26,21 +26,17 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import scouter.lang.AlertLevel;
-import scouter.lang.TextTypes;
 import scouter.lang.TimeTypeEnum;
 import scouter.lang.counters.CounterConstants;
 import scouter.lang.pack.AlertPack;
 import scouter.lang.pack.ObjectPack;
 import scouter.lang.pack.PerfCounterPack;
-import scouter.lang.pack.XLogPack;
 import scouter.lang.plugin.PluginConstants;
 import scouter.lang.plugin.annotation.ServerPlugin;
 import scouter.server.Configure;
 import scouter.server.CounterManager;
 import scouter.server.Logger;
 import scouter.server.core.AgentManager;
-import scouter.server.db.TextRD;
-import scouter.util.DateUtil;
 import scouter.util.HashUtil;
 
 import java.util.ArrayList;
@@ -180,33 +176,6 @@ public class LinePlugin {
 			// inactive state can be handled in alert() method.
     	}
 	}
-    
-    @ServerPlugin(PluginConstants.PLUGIN_SERVER_XLOG)
-    public void xlog(XLogPack pack) {
-    	try {
-    		int elapsedThreshold = conf.getInt("ext_plugin_elapsed_time_threshold", 0);
-    		
-    		if (elapsedThreshold != 0 && pack.elapsed > elapsedThreshold) {
-    			String serviceName = TextRD.getString(DateUtil.yyyymmdd(pack.endTime), TextTypes.SERVICE, pack.service);
-    			
-    			AlertPack ap = new AlertPack();
-    			
-		        ap.level = AlertLevel.WARN;
-		        ap.objHash = pack.objHash;
-		        ap.title = "Elapsed time exceed a threshold.";
-		        ap.message = "[" + AgentManager.getAgentName(pack.objHash) + "] " 
-		        				+ pack.service + "(" + serviceName + ") "
-		        				+ "elapsed time(" + pack.elapsed + " ms) exceed a threshold.";
-		        ap.time = System.currentTimeMillis();
-		        ap.objType = AgentManager.getAgent(pack.objHash).objType;
-				
-		        alert(ap);
-    		}
-    		
-		} catch (Exception e) {
-			Logger.printStackTrace(e);
-		}
-    }
 
     @ServerPlugin(PluginConstants.PLUGIN_SERVER_COUNTER)
     public void counter(PerfCounterPack pack) {
