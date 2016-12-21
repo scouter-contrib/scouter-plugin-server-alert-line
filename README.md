@@ -51,4 +51,5 @@ ext_plugin_line_group_id=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
     
 ## Appendix
 ##### Step by Step about notification to Line messenger #####
-* ?????
+* To push scouter's alert notification onto a line messenger.  
+  - [https://goo.gl/hhcFF6](https://goo.gl/hhcFF6)

@@ -49,5 +49,5 @@ ext_plugin_line_group_id=XXXXXXXXXXXXXXXXXXXXXXXXXXXX
     - dependency library와 함께 scouter-plugin-server-alert-line-xxx.jar 파일을 복사하여 Scouter Server 설치 경로 하위의 lib/ 폴더에 Copy 한다.
     
 ## Appendix
-##### Step by Step about notification to Line messenger #####
-* ?????
+##### Step by Step 라인 메신저와 Scouter 경고 연동하기 #####
+* - [https://goo.gl/AkGCQV](https://goo.gl/AkGCQV)
