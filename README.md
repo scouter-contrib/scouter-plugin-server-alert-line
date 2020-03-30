@@ -1,6 +1,9 @@
 # scouter-plugin-server-alert-line
 ![Englsh](https://img.shields.io/badge/language-English-orange.svg) [![Korean](https://img.shields.io/badge/language-Korean-blue.svg)](README_kr.md)
 
+### Deprecated. use scouter-plugin-server-alert-line-notify instead
+- 
+
 ### Scouter server plugin to send a alert via line
 
 - This plug-in sends alert messages generated from the server to the line messenger specific group or chat room.
